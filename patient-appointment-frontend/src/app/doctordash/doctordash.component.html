@@ -1,0 +1,248 @@
+<!-- <mat-toolbar class="navbar">
+    &nbsp;&nbsp;&nbsp;
+    <div class="log">
+        <img src="../../assets/doctor.png" alt="" width="75%">
+    </div>
+    <a class="logo" routerLink="/doctordashboard">MyCare</a>
+    <span class="example-spacer"></span>
+    <a class="active" routerLink="/doctordashboard">
+        <mat-icon>home</mat-icon>&nbsp;Home
+    </a>
+    <a color="basic" (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>&nbsp;Logout
+    </a>
+</mat-toolbar> -->
+
+<app-doctornavbar></app-doctornavbar>
+
+<div class="container">
+    <div class="tablecontainer">
+        <div class="selectstatus">
+            <label id="example-radio-group-label" class="text-center">Select Status: </label>
+            <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                [(ngModel)]="status" (ngModelChange)="getAppointments(status)">
+                <mat-radio-button class="example-radio-button" value="pending">Pending</mat-radio-button>
+                <mat-radio-button class="example-radio-button" value="rejected">Rejected</mat-radio-button>
+                <mat-radio-button class="example-radio-button" value="confirmed">Confirmed</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <!-- &nbsp;<a (click)="getAppointments(status)">Get Data</a> -->
+
+        <table *ngIf="status==null" mat-table [dataSource]="dataSource" class="table">
+            <!-- Columns -->
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef>Appointment Id</th>
+                <!-- <td mat-cell *matCellDef="let appointment">{{ appointment.appointmentID }}</td> -->
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef>Patient Name</th>
+                <!-- <td mat-cell *matCellDef="let appointment">{{ appointment.paitentName }}</td> -->
+            </ng-container>
+
+            <ng-container matColumnDef="doctor">
+                <th mat-header-cell *matHeaderCellDef>Doctor Name</th>
+                <!-- <td mat-cell *matCellDef="let appointment">{{ appointment.doctor.firstName+"
+                    "+appointment.doctor.lastName }}
+                </td> -->
+            </ng-container>
+
+            <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef>Date</th>
+                <!-- <td mat-cell *matCellDef="let appointment">{{ (appointment.appointmentDate).substring(0,10) }}</td> -->
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef>
+                    <div class="rr">
+                        <div>Action</div>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Search</mat-label>
+                            <input matInput placeholder="E.g: James" (keyup)="applyFilter($event)">
+                            <mat-icon matSuffix>search</mat-icon>
+                        </mat-form-field>
+                    </div>
+                </th>
+                <!-- <td mat-cell *matCellDef="let appointment">
+                    <a routerLink="/view/{{appointment.appointmentID}}" class="view">Confirm</a>&nbsp;&nbsp;
+                    <a routerLink="/view/{{appointment.appointmentID}}" class="delete">Reject</a>&nbsp;&nbsp;</td> -->
+                <!-- <a routerLink="" class="delete" (click)="deleteAppointment(appointment.appointmentID)">Delete</a></td> -->
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef>Status</th>
+                <!-- <td mat-cell *matCellDef="let appointment">
+                    <span *ngIf="(appointment.status)=='pending'" class="pending">{{appointment.status}}</span>
+                    <span *ngIf="(appointment.status)=='rejected'" class="rejected">{{appointment.status}}</span>
+                    <span *ngIf="(appointment.status)=='confirmed'" class="confirmed">{{appointment.status}}</span>
+                </td> -->
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+
+        <!-- table for pending -->
+        <table *ngIf="status=='pending'" mat-table [dataSource]="dataSource" class="table">
+
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef>Appointment Id</th>
+                <td mat-cell *matCellDef="let appointment">{{ appointment.appointmentID }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef>Patient Name</th>
+                <td mat-cell *matCellDef="let appointment">{{ appointment.paitentName }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="doctor">
+                <th mat-header-cell *matHeaderCellDef>Doctor Name</th>
+                <td mat-cell *matCellDef="let appointment">{{ appointment.doctor.firstName+"
+                    "+appointment.doctor.lastName }}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef>Date</th>
+                <td mat-cell *matCellDef="let appointment">{{ (appointment.appointmentDate).substring(0,10) }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef>
+                    <div class="rr">
+                        <div>Action</div>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Search</mat-label>
+                            <input matInput placeholder="E.g: James" (keyup)="applyFilter($event)">
+                            <mat-icon matSuffix>search</mat-icon>
+                        </mat-form-field>
+                    </div>
+                </th>
+                <td mat-cell *matCellDef="let appointment">
+                    <a class="view" (click)="updateStatus(appointment.appointmentID,'confirmed')">Confirm</a>&nbsp;&nbsp;
+                    <a class="delete" (click)="updateStatus(appointment.appointmentID,'rejected')">Reject</a>&nbsp;&nbsp;
+                    <!-- <a routerLink="" class="delete" (click)="deleteAppointment(appointment.appointmentID)">Delete</a></td> -->
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef>Status</th>
+                <td mat-cell *matCellDef="let appointment">
+                    <span class="pending">{{appointment.status}}</span>
+                    <!-- <span *ngIf="(appointment.status)=='rejected'" class="rejected">{{appointment.status}}</span>
+                    <span *ngIf="(appointment.status)=='confirmed'" class="confirmed">{{appointment.status}}</span> -->
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+
+        <!-- table for rejected -->
+        <table *ngIf="status=='rejected'" mat-table [dataSource]="dataSource" class="table">
+
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef>Appointment Id</th>
+                <td mat-cell *matCellDef="let appointment">{{ appointment.appointmentID }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef>Patient Name</th>
+                <td mat-cell *matCellDef="let appointment">{{ appointment.paitentName }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="doctor">
+                <th mat-header-cell *matHeaderCellDef>Doctor Name</th>
+                <td mat-cell *matCellDef="let appointment">{{ appointment.doctor.firstName+"
+                    "+appointment.doctor.lastName }}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef>Date</th>
+                <td mat-cell *matCellDef="let appointment">{{ (appointment.appointmentDate).substring(0,10) }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef>
+                    <div class="rr">
+                        <div>Action</div>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Search</mat-label>
+                            <input matInput placeholder="E.g: James" (keyup)="applyFilter($event)">
+                            <mat-icon matSuffix>search</mat-icon>
+                        </mat-form-field>
+                    </div>
+                </th>
+                <td mat-cell *matCellDef="let appointment">
+                    <a class="view" (click)="updateStatus(appointment.appointmentID,'confirmed')">Confirm</a>&nbsp;&nbsp;
+                    <!-- <a routerLink="" class="delete" (click)="deleteAppointment(appointment.appointmentID)">Delete</a></td> -->
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef>Status</th>
+                <td mat-cell *matCellDef="let appointment">
+                    <!-- <span *ngIf="(appointment.status)=='pending'" class="pending">{{appointment.status}}</span> -->
+                    <span class="rejected">{{appointment.status}}</span>
+                    <!-- <span *ngIf="(appointment.status)=='confirmed'" class="confirmed">{{appointment.status}}</span> -->
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+
+        <!-- table for confirmed -->
+        <table *ngIf="status=='confirmed'" mat-table [dataSource]="dataSource" class="table">
+
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef>Appointment Id</th>
+                <td mat-cell *matCellDef="let appointment">{{ appointment.appointmentID }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef>Patient Name</th>
+                <td mat-cell *matCellDef="let appointment">{{ appointment.paitentName }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="doctor">
+                <th mat-header-cell *matHeaderCellDef>Doctor Name</th>
+                <td mat-cell *matCellDef="let appointment">{{ appointment.doctor.firstName+"
+                    "+appointment.doctor.lastName }}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef>Date</th>
+                <td mat-cell *matCellDef="let appointment">{{ (appointment.appointmentDate).substring(0,10) }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef>
+                    <div class="rr">
+                        <div>Action</div>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Search</mat-label>
+                            <input matInput placeholder="E.g: James" (keyup)="applyFilter($event)">
+                            <mat-icon matSuffix>search</mat-icon>
+                        </mat-form-field>
+                    </div>
+                </th>
+                <td mat-cell *matCellDef="let appointment">
+                    <a class="delete" (click)="updateStatus(appointment.appointmentID,'rejected')">Reject</a>&nbsp;&nbsp;
+                    <!-- <a routerLink="" class="delete" (click)="deleteAppointment(appointment.appointmentID)">Delete</a></td> -->
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef>Status</th>
+                <td mat-cell *matCellDef="let appointment">
+                    <!-- <span *ngIf="(appointment.status)=='pending'" class="pending">{{appointment.status}}</span>
+                    <span *ngIf="(appointment.status)=='rejected'" class="rejected">{{appointment.status}}</span> -->
+                    <span class="confirmed">{{appointment.status}}</span>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+    </div>
+</div>

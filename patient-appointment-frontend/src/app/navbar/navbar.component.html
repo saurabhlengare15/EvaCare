@@ -1,0 +1,16 @@
+<mat-toolbar class="navbar">
+    &nbsp;&nbsp;&nbsp;
+    <div class="log">
+        <img src="../../assets/doctor.png" alt="" width="75%">
+    </div>
+    <a class="logo" routerLink="">EvaCare</a>
+    <span class="example-spacer"></span>
+    <a *ngIf="_loginservice.isPatientLoggedIn()"
+    class="active" routerLink=""><mat-icon>home</mat-icon>&nbsp;Home</a>
+    <a *ngIf="_loginservice.isPatientLoggedIn()" color="basic" routerLink="/bookappointment"><mat-icon>add_circle</mat-icon>&nbsp;Book Appointment</a>
+    <a *ngIf="_loginservice.isPatientLoggedIn()" color="basic" routerLink="/history"><mat-icon>history</mat-icon>&nbsp;Booking History</a>
+    <a *ngIf="_loginservice.isPatientLoggedIn()" color="basic" routerLink="/accountdetails"><mat-icon>account_circle</mat-icon>&nbsp;My Account</a>
+    <a *ngIf="_loginservice.isPatientLoggedIn()" color="basic" (click)="logout()"><mat-icon>logout</mat-icon>&nbsp;Logout</a>
+    <a *ngIf="!_loginservice.isPatientLoggedIn()" color="basic" routerLink="/login"><mat-icon>exit_to_app</mat-icon>&nbsp;LogIn</a>
+    <a *ngIf="!_loginservice.isPatientLoggedIn()" color="basic" routerLink="/register"><mat-icon>app_registration</mat-icon>&nbsp;Register</a>
+  </mat-toolbar>

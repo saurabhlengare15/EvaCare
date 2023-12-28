@@ -1,0 +1,112 @@
+<app-navbar></app-navbar>
+
+<div class="container mt20">
+    <mat-card class="main">
+        <div class="icon-1 icon-total-apt"><mat-icon>event_note</mat-icon></div>
+        <mat-card-content>
+            <form #updatepatient="ngForm" (ngSubmit)="submit(updatepatient)">
+
+                <div class="row">
+                    <div class="cols">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Patient Id</mat-label>
+                            <input required #pid="ngModel" name="id" minlength="2" matInput
+                                placeholder="Eg.Male" [(ngModel)]="patientId" ngModel readonly>
+                        </mat-form-field>
+                        <div *ngIf="pid.touched && pid.invalid" class="msg">
+                            <span style="color: red;">Enter valid details</span>
+                        </div>
+                    </div>
+
+                    <div class="cols">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Username</mat-label>
+                            <input #doctorid="ngModel" required name="username" matInput placeholder="Eg.Saurabh Lengare"
+                                [(ngModel)]="patientUername" ngModel readonly>
+                        </mat-form-field>
+                        <div *ngIf="doctorid.touched && doctorid.invalid" class="msg">
+                            <span style="color: red;">Enter valid details</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="cols">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Name</mat-label>
+                            <input #aptid="ngModel" required name="name" minlength="4" matInput placeholder="Eg.Saurabh Lengare"
+                                [(ngModel)]="patientName" ngModel>
+                        </mat-form-field>
+                        <div *ngIf="aptid.touched && aptid.invalid" class="msg">
+                            <span style="color: red;">Enter valid details</span>
+                        </div>
+                    </div>
+
+                    <div class="cols">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input required #ptname="ngModel" name="email" minlength="8" matInput
+                                placeholder="Eg.Male" [(ngModel)]="patientEmail" ngModel>
+                        </mat-form-field>
+                        <div *ngIf="ptname.touched && ptname.invalid" class="msg">
+                            <span style="color: red;">Enter valid details</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="cols">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Gender</mat-label>
+                            <input required #ptname="ngModel" name="gender" minlength="4" maxlength="6" matInput
+                                placeholder="Eg.Male" [(ngModel)]="patientGender" ngModel>
+                        </mat-form-field>
+                        <div *ngIf="ptname.touched && ptname.invalid" class="msg">
+                            <span style="color: red;">Enter valid details</span>
+                        </div>
+                    </div>
+
+                    <div class="cols">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Mobile No</mat-label>
+                            <input required #gndr="ngModel" name="mobile" matInput
+                                placeholder="Eg.3001" minlength="10" maxlength="10" [(ngModel)]="patientMobile" ngModel>
+                        </mat-form-field>
+                        <div *ngIf="gndr.touched && gndr.invalid" class="msg">
+                            <span style="color: red;">Enter valid details</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="row">
+                    <div class="cols">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Specialization</mat-label>
+                            <input required #spec="ngModel" name="specialization" matInput
+                                placeholder="Eg.3001" [(ngModel)]="specialization" ngModel readonly>
+                        </mat-form-field>
+                        <div *ngIf="spec.touched && spec.invalid" class="msg">
+                            <span style="color: red;">Enter valid details</span>
+                        </div>
+                    </div>
+
+                    <div class="cols">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Resident</mat-label>
+                            <input required #rsdnt="ngModel" name="resident" matInput
+                                placeholder="Eg.3001" [(ngModel)]="resident" ngModel readonly>
+                        </mat-form-field>
+                        <div *ngIf="rsdnt.touched && rsdnt.invalid" class="msg">
+                            <span style="color: red;">Enter valid details</span>
+                        </div>
+                    </div>
+                </div> -->
+    
+                <div class="text-center">
+                    <button type="submit" mat-raised-button color="primary" class="mr10">Update</button>
+                    <button mat-raised-button color="accent" routerLink="">Back</button>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

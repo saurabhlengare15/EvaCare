@@ -1,0 +1,133 @@
+/* navbar */
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  
+  .navbar a{
+    font-size: 14px;
+    letter-spacing: 0.1px;
+    text-decoration: none;
+    padding: 13px 18px;
+    color: rgba(58, 58, 58, 0.728);
+    display: flex;
+    align-items: center;
+  }
+
+  .log{
+    height: 52px;
+    width: 52px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 72px;
+    background-color: #05445E;
+  }
+  
+  .navbar .logo{
+    text-decoration: none;
+    color: #00AD9D;
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: -10px;
+  }
+
+  .navbar{
+    background-color: #fff;
+    height: 60px;
+  }
+
+  mat-icon{
+    /* height: 10px; */
+    line-height: 25px;
+    /* background-color: red; */
+  }
+
+
+
+/* body */
+.container{
+    width: 40%;
+    margin: 10px auto;
+}
+
+.icon-1{
+    height: 110px;
+    width: 110px;
+    position: absolute;
+    top: -70px;
+    left: 30px;
+    border-radius: 5px;
+    background-color: #37BEB0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+mat-icon{
+    color: #fff;
+    display: flex;
+    margin: 5px auto;
+    font-size: 80px;
+    height: 100%;
+    text-align: center;
+    width: 100%;
+    /* background-color: red; */
+    justify-content: center;
+    align-items: center;
+}
+
+.container form{
+    width: 80%;
+    margin: 5px auto;
+    margin-top: 60px;
+    /* background-color: red; */
+}
+
+.logo{
+    height: 100px;
+    width: 100px;
+    font-size: 80px;
+}
+
+.main{
+    margin-top: 100px;
+    /* border-bottom: 5px solid #0C6170; */
+    border-bottom: 5px solid #05445E;
+    margin-bottom: 30px;
+}
+
+.msg{
+    font-size: 16px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+h1{
+    color: #ff4081;
+}
+
+h2{
+    margin-top: 10px;
+    color: #ff4081;
+}
+
+.example-radio-group {
+    /* display: flex;
+    flex-direction: column; */
+    margin: 5px 0;
+    align-items: flex-start;
+  }
+  
+  .example-radio-button {
+    margin: 5px;
+  }
+
+  p{
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  a{
+    text-decoration: none;
+    color: #000;
+  }

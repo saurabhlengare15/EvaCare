@@ -1,0 +1,84 @@
+.container{
+    width: 50%;
+    margin: 10px auto;
+}
+
+.icon-1{
+    height: 110px;
+    width: 110px;
+    position: absolute;
+    top: -70px;
+    left: 30px;
+    border-radius: 5px;
+    background-color: #37BEB0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+mat-icon{
+    color: #fff;
+    display: flex;
+    margin: 5px auto;
+    font-size: 80px;
+    height: 100%;
+    text-align: center;
+    width: 100%;
+    /* background-color: red; */
+    justify-content: center;
+    align-items: center;
+}
+
+.container form{
+    width: 90%;
+    margin: 5px auto;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    /* background-color: purple; */
+}
+
+.logo{
+    height: 100px;
+    width: 100px;
+    font-size: 80px;
+}
+
+.main{
+    margin-top: 100px;
+    /* border-bottom: 5px solid #0C6170; */
+    border-bottom: 5px solid #05445E;
+    margin-bottom: 30px;
+}
+
+.msg{
+    font-size: 16px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+h1{
+    color: #ff4081;
+}
+
+h2{
+    margin-top: 10px;
+    color: #ff4081;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* justify-content: flex-end; */
+}
+
+.cols{
+    /* background-color: red; */
+    width: 45%;
+}
+
+mat-form-field{
+    width: 100%;
+}

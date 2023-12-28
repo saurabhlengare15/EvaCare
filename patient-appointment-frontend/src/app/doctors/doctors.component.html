@@ -1,0 +1,17 @@
+<app-navbar></app-navbar>
+<!-- {{allDoctors | json}} -->
+<div class="container">
+    <div class="row">
+        <div *ngFor="let doctors of allDoctors">
+            <div class="box">
+                <!-- <p>hello</p> -->
+                <img src="../../assets/doctor2.png" width="28%"><br>
+                <p class="name">{{doctors.firstName}} {{doctors.lastName}}</p>
+                <!-- <p class="id">Id: {{doctors.doctorID}}</p> -->
+                <p class="specialization">Specialization: {{doctors.specialization}}</p>
+                <p *ngIf="(doctors.resident)==1" class="residential">Resident: Yes</p>
+                <p *ngIf="(doctors.resident)==0" class="residential">Resident: No</p>
+            </div>
+        </div>
+    </div>
+</div>

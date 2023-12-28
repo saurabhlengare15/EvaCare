@@ -1,0 +1,93 @@
+<app-doctornavbar></app-doctornavbar>
+
+<div class="container">
+    <mat-card class="main">
+        <div class="icon-1 icon-total-apt">
+            <mat-icon>local_hospital</mat-icon>
+        </div>
+        <!-- <div class="icon-1 icon-total-apt"><img src="../../assets/appointment.png" width="80%"></div> -->
+        <mat-card-content>
+            <form #doctorInfo="ngForm" (ngSubmit)="submit(doctorInfo)">
+                <!-- <form #regForm="ngForm"> -->
+                <div class="group">
+                    <div class="textfields">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>First Name</mat-label>
+                            <input #fname="ngModel" required name="firstname" minlength="4" matInput placeholder="Eg.Saurabh"
+                                ngModel>
+                        </mat-form-field>
+                        <div *ngIf="fname.touched && fname.invalid" class="msg">
+                            <span style="color: red;">Enter valid details</span>
+                        </div>
+                    </div>
+
+                    <div class="textfields">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Last Name</mat-label>
+                            <input #lname="ngModel" required name="lastname" minlength="4" matInput placeholder="Eg.Lengare"
+                                ngModel>
+                        </mat-form-field>
+                        <div *ngIf="lname.touched && lname.invalid" class="msg">
+                            <span style="color: red;">Enter valid details</span>
+                        </div>
+                    </div>
+
+                    <div class="textfields">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Specialization</mat-label>
+                            <input #speciali="ngModel" required name="specialization" minlength="2" matInput placeholder="Eg.MBBS"
+                                ngModel>
+                        </mat-form-field>
+                        <div *ngIf="speciali.touched && speciali.invalid" class="msg">
+                            <span style="color: red;">Enter valid details</span>
+                        </div>
+                    </div>
+
+                    <div class="textfields">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Resident</mat-label>
+                            <mat-select #res="ngModel" name="resident" required #gender="ngModel" ngModel>
+                                <mat-option value="1">Yes</mat-option>
+                                <mat-option value="0">No</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <div *ngIf="res.touched && res.invalid" class="msg">
+                            <span style="color: red;">Enter valid details</span>
+                        </div>
+                    </div>
+
+                    <div class="textfields">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Username</mat-label>
+                            <input #uname="ngModel" required name="username" minlength="4" matInput placeholder="Eg.Saurabh123"
+                                ngModel>
+                        </mat-form-field>
+                        <div *ngIf="uname.touched && uname.invalid" class="msg">
+                            <span style="color: red;">Enter valid details</span>
+                        </div>
+                    </div>
+
+                    <div class="textfields">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Password</mat-label>
+                            <input type="password" #pass="ngModel" required name="password" minlength="6" matInput placeholder="Eg.******"
+                                ngModel>
+                        </mat-form-field>
+                        <div *ngIf="pass.touched && pass.invalid" class="msg">
+                            <span style="color: red;">Enter valid details</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="gotosignup">
+                    <p><a routerLink="/doctorlogin">Already have Account, Sign In</a></p>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" mat-raised-button color="primary" class="mr10">Submit</button>
+                    <button type="reset" mat-raised-button color="accent">Reset</button>
+                </div>
+                <!-- <h2 *ngIf="flag">{{sname | uppercase}} added successfully..</h2> -->
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

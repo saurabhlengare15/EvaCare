@@ -1,0 +1,44 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="row row-1">
+        <div class="box-1 doctors">
+            <div class="icon-1 icon-doctors"><mat-icon>healing</mat-icon></div>
+            <div class="count">
+                <h5>Total Doctors</h5>
+                <h3>{{doctorCount}}</h3>
+            </div><br>
+            <p><a routerLink="alldoctors">All Doctors</a></p>
+        </div>
+        <div class="box-1 book-apt">
+            <div class="icon-1 icon-book-apt"><mat-icon>add_circle</mat-icon></div><br><br><br><br>
+            <p><a routerLink="bookappointment">Book Appointment</a></p>
+        </div>
+        <div class="box-1 total-apt">
+            <div class="icon-1 icon-total-apt"><mat-icon>history</mat-icon></div>
+            <div class="count">
+                <h5>Total Appointments</h5>
+                <h3>{{appointmentCount}}</h3>
+            </div>
+            <p><a routerLink="history">History</a></p>
+        </div>
+        <div class="box-1 acc">
+            <div class="icon-1 icon-acc"><mat-icon>account_circle</mat-icon></div><br><br><br><br>
+            <p><a routerLink="accountdetails">My Account</a></p>
+        </div>
+    </div>
+
+    <div class="row-2">
+        <div class="box-2 doctors">
+            <div class="icon-2 icon-doctors" id="icon-doctors"><mat-icon>healing</mat-icon></div><br><br><br><br><br><br><br><br><br>
+            <p>All Doctors</p>
+        </div>
+        <div class="box-2 book-apt">
+            <div class="icon-2 icon-book-apt" id="icon-book-apt"><mat-icon>add_circle</mat-icon></div><br><br><br><br><br><br><br><br><br>
+            <p>Book Appointment</p>
+        </div>
+        <div class="box-2 total-apt">
+            <div class="icon-2 icon-total-apt" id="icon-total-apt"><mat-icon>history</mat-icon></div><br><br><br><br><br><br><br><br><br>
+            <p>Appointments History</p>
+        </div>
+    </div>
+</div>

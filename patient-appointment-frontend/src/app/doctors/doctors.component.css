@@ -1,0 +1,36 @@
+.container{
+    margin-top: 50px;
+}
+
+.row{
+    /* height: 200px; */
+    /* background-color: #fff; */
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.box{
+    background-color: #fff;
+    /* height: 250px; */
+    width: 350px;
+    margin: 15px 5px;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* text-align: center; */
+}
+
+.name{
+    color: #37BEB0;
+    letter-spacing: 0px;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.id{
+    color: #A4E5E0;
+    font-size: 16px;
+}

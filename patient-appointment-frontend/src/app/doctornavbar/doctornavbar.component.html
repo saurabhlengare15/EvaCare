@@ -1,0 +1,20 @@
+<mat-toolbar class="navbar">
+    &nbsp;&nbsp;&nbsp;
+    <div class="log">
+        <img src="../../assets/doctor.png" alt="" width="75%">
+    </div>
+    <a class="logo" routerLink="/doctordashboard">EvaCare</a>
+    <span class="example-spacer"></span>
+    <a *ngIf="_loginservice.isLoggedin()" class="active" routerLink="/doctordashboard">
+        <mat-icon>home</mat-icon>&nbsp;Home
+    </a>
+    <a *ngIf="_loginservice.isLoggedin()" color="basic" (click)="logout()">
+        <mat-icon>logout</mat-icon>&nbsp;Logout
+    </a>
+    <a *ngIf="!_loginservice.isLoggedin()" routerLink="/doctorlogin">
+        <mat-icon>exit_to_app</mat-icon>&nbsp;LogIn
+    </a>
+    <a *ngIf="!_loginservice.isLoggedin()" routerLink="/doctorregistration">
+        <mat-icon>app_registration</mat-icon>&nbsp;Register
+    </a>
+</mat-toolbar>

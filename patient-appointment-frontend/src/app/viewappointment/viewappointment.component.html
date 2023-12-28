@@ -1,0 +1,113 @@
+<app-navbar></app-navbar>
+
+<div class="container mt20">
+    <mat-card class="main">
+        <div class="icon-1 icon-total-apt"><mat-icon>event_note</mat-icon></div>
+        <mat-card-content>
+            <form #updateAppointment="ngForm" (ngSubmit)="submit(updateAppointment)">
+                <div class="row">
+                    <div class="cols">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Appointment Id</mat-label>
+                            <input #aptid="ngModel" required name="appointmentid" minlength="4" matInput placeholder="Eg.Saurabh Lengare"
+                                [(ngModel)]="appointmentID" ngModel readonly>
+                        </mat-form-field>
+                        <div *ngIf="aptid.touched && aptid.invalid" class="msg">
+                            <span style="color: red;">Enter valid details</span>
+                        </div>
+                    </div>
+
+                    <div class="cols">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Patient Name</mat-label>
+                            <input required #ptname="ngModel" name="patientname" matInput
+                                placeholder="Eg.Male" [(ngModel)]="paitentName" ngModel readonly>
+                        </mat-form-field>
+                        <div *ngIf="ptname.touched && ptname.invalid" class="msg">
+                            <span style="color: red;">Enter valid details</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="cols">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Appointment Date</mat-label>
+                            <!-- <input required matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" #date="ngModel" name="date" ngModel> -->
+                            <input required matInput [matDatepicker]="picker" #dt="ngModel" name="date" [(ngModel)]="appointmentDate" ngModel>
+                            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                          </mat-form-field>
+                        <div *ngIf="dt.touched && dt.invalid" class="msg">
+                            <span style="color: red;">Enter valid details</span>
+                        </div>
+                    </div>
+
+                    <div class="cols">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Gender</mat-label>
+                            <input required #gndr="ngModel" name="gender" matInput
+                                placeholder="Eg.3001" minlength="4" maxlength="6" [(ngModel)]="gender" ngModel readonly>
+                        </mat-form-field>
+                        <div *ngIf="gndr.touched && gndr.invalid" class="msg">
+                            <span style="color: red;">Enter valid details</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="cols">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Doctor Id</mat-label>
+                            <input #doctorid="ngModel" required name="doctorid" matInput placeholder="Eg.Saurabh Lengare"
+                                [(ngModel)]="doctorID" ngModel readonly>
+                        </mat-form-field>
+                        <div *ngIf="doctorid.touched && doctorid.invalid" class="msg">
+                            <span style="color: red;">Enter valid details</span>
+                        </div>
+                    </div>
+
+                    <div class="cols">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Doctor Name</mat-label>
+                            <input required #doctname="ngModel" name="doctorname" matInput
+                                placeholder="Eg.Male" [(ngModel)]="doctorName" ngModel readonly>
+                        </mat-form-field>
+                        <div *ngIf="doctname.touched && doctname.invalid" class="msg">
+                            <span style="color: red;">Enter valid details</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="cols">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Specialization</mat-label>
+                            <input required #spec="ngModel" name="specialization" matInput
+                                placeholder="Eg.3001" [(ngModel)]="specialization" ngModel readonly>
+                        </mat-form-field>
+                        <div *ngIf="spec.touched && spec.invalid" class="msg">
+                            <span style="color: red;">Enter valid details</span>
+                        </div>
+                    </div>
+
+                    <div class="cols">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Resident</mat-label>
+                            <input required #rsdnt="ngModel" name="resident" matInput
+                                placeholder="Eg.3001" [(ngModel)]="resident" ngModel readonly>
+                        </mat-form-field>
+                        <div *ngIf="rsdnt.touched && rsdnt.invalid" class="msg">
+                            <span style="color: red;">Enter valid details</span>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="text-center">
+                    <button type="submit" mat-raised-button color="primary" class="mr10">Submit</button>
+                    <button mat-raised-button color="accent" routerLink="/history">Back</button>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

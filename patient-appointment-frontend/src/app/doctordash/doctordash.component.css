@@ -1,0 +1,168 @@
+/* navbar */
+/* #75E6DA
+#00AD9D
+#E8F3F1
+#545479 */
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  
+  .navbar a{
+    font-size: 14px;
+    letter-spacing: 0.1px;
+    text-decoration: none;
+    padding: 13px 18px;
+    color: rgba(58, 58, 58, 0.728);
+    display: flex;
+    align-items: center;
+  }
+
+  .log{
+    height: 52px;
+    width: 52px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 72px;
+    background-color: #05445E;
+  }
+  
+  .navbar .logo{
+    text-decoration: none;
+    color: #00AD9D;
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: -10px;
+  }
+
+  /* .active{
+    color: #00AD9D;
+    border-bottom: 3px solid #00AD9D;
+  } */
+
+  .navbar{
+    background-color: #fff;
+    height: 60px;
+  }
+
+  mat-icon{
+    /* height: 10px; */
+    line-height: 25px;
+    /* background-color: red; */
+  }
+
+
+/* body */
+.container{
+    display: flex;
+    justify-content: center;
+  }
+
+  a{
+    cursor: pointer;
+  }
+  
+  .tablecontainer{
+    margin-top: 50px;
+    width: 90%;
+  }
+
+  .selectstatus{
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #00AD9D;
+  }
+  
+  th{
+    font-size: 16px;
+    font-weight: 600;
+    color: #0C6170;
+  }
+  
+  .rr{
+    display: flex;
+    align-items: center;
+    justify-items: flex-end;
+  }
+  
+  .rr div{
+    flex: 2;
+  }
+  
+  mat-form-field{
+    flex: 2;
+    width: 250px;
+    height: 70px;
+    padding: 8px;
+  }
+  
+  input::placeholder{
+    font-size: 14px;
+  }
+  
+  ::ng-deep .mat-mdc-text-field-wrapper {
+    height: 50px !important;
+  }
+  
+  td{
+    font-size: 15px;
+  }
+  
+  td:nth-child(odd){
+    font-weight: 600;
+  }
+  
+  td:last-child{
+    font-weight: 400;
+  }
+  
+  .view{
+    text-decoration: none;
+    background-color: #37BEB0;
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 3px;
+  }
+  
+  .delete{
+    text-decoration: none;
+    background-color: rgb(191, 58, 58);
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 3px;
+  }
+  
+  .view:hover{
+    background-color: #40d0c2;
+  }
+  
+  .delete:hover{
+    background-color: rgb(207, 63, 63);
+  }
+  
+  .table .pending{
+    background-color: rgba(255, 150, 105, 0.66);
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 10px;
+  }
+  
+  .table .rejected{
+    background-color: rgba(255, 76, 76, 0.712);
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 10px;
+  }
+  
+  .table .confirmed{
+    background-color: rgba(29, 193, 29, 0.66);
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 10px;
+  }
+    

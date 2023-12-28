@@ -1,0 +1,52 @@
+/* #75E6DA
+#00AD9D
+#E8F3F1
+#545479 */
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  
+  a{
+    font-size: 14px;
+    letter-spacing: 0.1px;
+    text-decoration: none;
+    padding: 13px 18px;
+    color: rgba(58, 58, 58, 0.728);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .log{
+    height: 52px;
+    width: 52px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 72px;
+    background-color: #05445E;
+  }
+  
+  .logo{
+    text-decoration: none;
+    color: #00AD9D;
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: -10px;
+  }
+
+  /* .active{
+    color: #00AD9D;
+    border-bottom: 3px solid #00AD9D;
+  } */
+
+  .navbar{
+    background-color: #fff;
+    height: 60px;
+  }
+
+  mat-icon{
+    /* height: 10px; */
+    line-height: 25px;
+    /* background-color: red; */
+  }
